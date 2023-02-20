@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
+* {
+  font-family: "Fredoka", serif;
+}
+
+.product-add-content, .product-add-footer {
+  width: 100%;
+  max-width: 1350px;
+  margin: auto;
+  padding: 25px 0;
+}
+
+.product-add-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 3px solid rgb(29, 29, 29);
+}
+
+#product-save-btn, #product-cancel-btn {
+  margin-left: 20px;
+  box-shadow: 2px 3px 2px rgb(29, 29, 29);
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgb(29, 29, 29);
+}
+
+.product-desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 50px;
+  padding-bottom: 40%;
+}
+
+.product-add-form {
+  margin: 50px auto;
+}
+
+.product-add-form label {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-top: 10px;
+}
+
+.product-inputs span {
+  width: 200px;
+}
+
+.dvd-container, .furniture-container, .book-container {
+  display: none;
+}
+
+.saved-message {
+  display: none;
+}
+
+.product-add-footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding: 25px 0;
+  margin: auto;
+  border-top: 3px solid rgb(29, 29, 29);
+}
+
+/*# sourceMappingURL=add-product.css.map */

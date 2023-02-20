@@ -1,0 +1,15 @@
+{
+    "name": "giorgi/scandiweb_test",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Giorgi Tsintsadze",
+            "email": "giorga1993@gmail.com"
+        }
+    ],
+    "require": {}
+}

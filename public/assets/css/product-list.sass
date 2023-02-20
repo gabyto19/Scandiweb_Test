@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap")
+$scandiwebBlack: rgb(29,29,29)
+
+*
+  font-family: "Fredoka", serif
+
+.main-container, .product-list-footer
+  width: 100%
+  max-width: 1350px
+  margin: auto
+  padding: 25px 0
+
+.product-list-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding-bottom: 20px
+  border-bottom: 3px solid $scandiwebBlack
+
+#product-add-btn, #product-delete-btn
+  margin-left: 20px
+  box-shadow: 2px 3px 2px $scandiwebBlack
+  cursor: pointer
+  outline: none
+  border: 1px solid $scandiwebBlack
+
+.product-list-content
+  height: 85vh
+  display: grid
+  grid-template-columns: repeat(4, 240px)
+  grid-gap: 35px 136px
+  padding-bottom: 40%
+  overflow-y: scroll
+
+.product
+  position: relative
+  margin-top: 25px
+  padding: 40px 0
+  max-height: 185px
+  max-width: 220px
+  border: 2px solid $scandiwebBlack
+  text-align: center
+
+.product-list-footer
+  position: absolute
+  bottom: 0
+  padding: 25px 0
+  margin: auto
+  text-align: center
+  border-top: 3px solid $scandiwebBlack
+  z-index: 10
+  background: #fff
+
+.delete-checkbox
+  position: absolute
+  top: 10px
+  left: 16px
+
+.product-list-content::-webkit-scrollbar
+  display: none
+
+@media (max-width: 1360px)
+  .product-list-content
+    grid-gap: 50px 6px
+
+@media (max-width: 900px)
+  .product-list-content
+    grid-template-columns: repeat(2, 240px)
+    padding: 0 20px
+
+  .product-list-header
+    padding: 0 20px 20px 20px
+
+  .main-container
+    max-width: 700px
+
+@media (max-width: 700px)
+  .product-list-content, .main-container
+    grid-template-columns: repeat(2, 240px)
+
+@media (max-width: 370px)
+  .product-list-content
+    padding-right: 20px
+    grid-template-columns: repeat(1, 240px)
+
+  .main-container
+    padding-right: 20px
+    padding-left: 20px
