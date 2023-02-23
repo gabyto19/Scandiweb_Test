@@ -3,6 +3,7 @@
 use app\Core\Template;
 use app\Model\Book;
 use app\Model\Dvd;
+use app\Model\Furniture;
 
 $template = new Template();
 
@@ -12,7 +13,16 @@ $requestMethod = $_SERVER["REQUEST_METHOD"];
 switch ($page)
 {
     case @"/":
-        $template->render("product-list.php");
+        $dvdCollection = new Dvd();
+        $furnitureCollection = new Furniture();
+        $bookCollection = new Book();
+
+        $template->render("product-list.php",
+            [
+                "dvd" => $dvdCollection->getCollection("dvd"),
+                "furniture" => $furnitureCollection->getCollection("furniture"),
+                "book" => $bookCollection->getCollection("book")
+            ]);
         break;
     case @"/addproduct":
 
@@ -20,7 +30,6 @@ switch ($page)
         {
             $template->render("add-product.php");
         }
-
 
         if ($requestMethod === "POST")
         {
@@ -34,12 +43,18 @@ switch ($page)
                 $dvd->saveDvd();
             }
 
+            if ($_POST["product_type"] === "furniture")
+            {
+                $furniture = new Furniture();
+                $furniture->setSku($_POST["sku"]);
+                $furniture->setName($_POST["name"]);
+                $furniture->setPrice($_POST["price"]);
+                $furniture->setHeight($_POST["height"]);
+                $furniture->setWidth($_POST["width"]);
+                $furniture->setLength($_POST["length"]);
+                $furniture->saveFurniture();
+            }
 
-//            if ($_POST["product_type"] === "furniture")
-//            {
-//                //Todo
-//            }
-//
             if ($_POST["product_type"] === "book")
             {
                 $book = new Book();

@@ -16,20 +16,52 @@
             <button id="product-delete-btn" onclick="deleteProduct()">MASS DELETE</button>
         </div>
     </div>
+    <div class="product-list-content">
+        <?php if (empty($dvd) && empty($furniture) && empty($book)): ?>
+            <div class="empty-product-msg">
+                There is no product added
+            </div>
+        <?php endif;?>
+        <?php foreach ($dvd as $dvdCollection): ?>
+            <div class="product" id="">
+                <input type="checkbox" class="delete-checkbox" value="<?php echo $dvdCollection["product_id"]?>">
+                <div class="product-desc">
+                    <div class="product-sku"><?php echo $dvdCollection["sku"]?></div>
+                    <div class="product-name"><?php echo $dvdCollection["name"]?></div>
+                    <div class="product-price"><?php echo $dvdCollection["price"], " $"?></div>
+                    <div class="product-desc"><?php echo "Size: ", $dvdCollection["size"], " MB"?></div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php foreach ($furniture as $furnitureCollection): ?>
+            <div class="product" id="">
+                <input type="checkbox" class="delete-checkbox" value="<?php echo $furnitureCollection["product_id"]?>">
+                <div class="product-desc">
+                    <div class="product-sku"><?php echo $furnitureCollection["sku"]?></div>
+                    <div class="product-name"><?php echo $furnitureCollection["name"]?></div>
+                    <div class="product-price"><?php echo $furnitureCollection["price"], " $"?></div>
+                    <div class="product-desc">
+                        <?php echo "Dimension: " ,
+                        $furnitureCollection["height"], "x",
+                        $furnitureCollection["width"], "x",
+                        $furnitureCollection["length"]?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php foreach ($book as $bookCollection): ?>
+            <div class="product" id="">
+                <input type="checkbox" class="delete-checkbox" value="<?php echo $bookCollection["product_id"]?>">
+                <div class="product-desc">
+                    <div class="product-sku"><?php echo $bookCollection["sku"]?></div>
+                    <div class="product-name"><?php echo $bookCollection["name"]?></div>
+                    <div class="product-price"><?php echo $bookCollection["price"], " $"?></div>
+                    <div class="product-desc"><?php echo "Weight: ", $bookCollection["weight"], "KG"?></div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
 
-<!--    --><?php //foreach (): ?>
-<!--        <div class="product-list-content">-->
-<!--            <div class="product" id="">-->
-<!--                <input type="checkbox" class="delete-checkbox">-->
-<!--                <div class="product-desc">-->
-<!--                    <div class="product-sku">Sku</div>-->
-<!--                    <div class="product-name">Name</div>-->
-<!--                    <div class="product-price">Price</div>-->
-<!--                    <div class="product-desc">DESC</div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    --><?php //endforeach; ?>
 <!---->
 <!--    --><?php //foreach (): ?>
 <!--        <div class="product-list-content">-->
