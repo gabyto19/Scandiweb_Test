@@ -28,13 +28,25 @@ switch ($page)
 
         if ($requestMethod === "GET")
         {
+            if (isset($_POST["sku"]))
+            {
+                echo "<pre>";
+                var_dump("ewe");
+                echo "</pre>";
+                exit;
+            }
             $template->render("add-product.php");
         }
 
         if ($requestMethod === "POST")
         {
+            $errors = [];
             if ($_POST["product_type"] === "dvd")
             {
+                if (isset($_POST["sku"]))
+                {
+                    echo "rame";
+                }
                 $dvd = new Dvd();
                 $dvd->setSku($_POST["sku"]);
                 $dvd->setName($_POST["name"]);
@@ -64,6 +76,13 @@ switch ($page)
                 $book->setWeight($_POST["weight"]);
                 $book->saveBook();
             }
+        }
+        break;
+    case @"/massdelete":
+        if ($requestMethod === "POST")
+        {
+            $deleteData = new Dvd();
+            $deleteData->massDelete([$_POST["ids"]]);
         }
         break;
     default:

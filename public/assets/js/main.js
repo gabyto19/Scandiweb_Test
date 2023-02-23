@@ -22,13 +22,10 @@ function saveProduct() {
         data: dataForSend,
     }).done(function () {
         let inputs = Array.from(document.querySelectorAll("#product-form input"))
-        // inputs.map(p => p.value = "")
         for(let index in inputs) {
             inputs[index].value = ""
         }
-
         // location.href = "/"
-        console.log(dataForSend)
     })
 }
 
@@ -63,5 +60,20 @@ function typeSwitcher()
 
 function deleteProduct()
 {
-    //todo
+    let ids = []
+    let checkboxes = document.getElementsByClassName("delete-checkbox")
+
+    for(let i=0, n=checkboxes.length;i<n;i++) {
+        if (checkboxes[i].checked) {
+            ids.push(checkboxes[i].value)
+        }
+    }
+    $.ajax({
+        type: "POST",
+        url: "massdelete",
+        data: {
+            ids: ids
+        },
+    })
+    location.reload()
 }

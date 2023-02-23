@@ -71,4 +71,12 @@ abstract class AbstractProduct extends Database
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function massDelete(array $ids)
+    {
+        $in  = str_repeat('?,', count($ids[0]) - 1) . '?';
+        $sql = "DELETE FROM product WHERE product_id IN ($in)";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute($ids[0]);
+    }
 }

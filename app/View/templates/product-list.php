@@ -23,7 +23,7 @@
             </div>
         <?php endif;?>
         <?php foreach ($dvd as $dvdCollection): ?>
-            <div class="product" id="">
+            <div class="product" id="<?php echo $dvdCollection["product_id"]?>">
                 <input type="checkbox" class="delete-checkbox" value="<?php echo $dvdCollection["product_id"]?>">
                 <div class="product-desc">
                     <div class="product-sku"><?php echo $dvdCollection["sku"]?></div>
@@ -34,7 +34,7 @@
             </div>
         <?php endforeach; ?>
         <?php foreach ($furniture as $furnitureCollection): ?>
-            <div class="product" id="">
+            <div class="product" id="<?php echo $furnitureCollection["product_id"]?>">
                 <input type="checkbox" class="delete-checkbox" value="<?php echo $furnitureCollection["product_id"]?>">
                 <div class="product-desc">
                     <div class="product-sku"><?php echo $furnitureCollection["sku"]?></div>
@@ -50,7 +50,7 @@
             </div>
         <?php endforeach; ?>
         <?php foreach ($book as $bookCollection): ?>
-            <div class="product" id="">
+            <div class="product" id="<?php echo $bookCollection["product_id"]?>">
                 <input type="checkbox" class="delete-checkbox" value="<?php echo $bookCollection["product_id"]?>">
                 <div class="product-desc">
                     <div class="product-sku"><?php echo $bookCollection["sku"]?></div>
@@ -61,35 +61,6 @@
             </div>
         <?php endforeach; ?>
     </div>
-
-<!---->
-<!--    --><?php //foreach (): ?>
-<!--        <div class="product-list-content">-->
-<!--            <div class="product" id="">-->
-<!--                <input type="checkbox" class="delete-checkbox">-->
-<!--                <div class="product-desc">-->
-<!--                    <div class="product-sku">Sku</div>-->
-<!--                    <div class="product-name">Name</div>-->
-<!--                    <div class="product-price">Price</div>-->
-<!--                    <div class="product-desc">DESC</div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    --><?php //endforeach; ?>
-
-<!--    --><?php //foreach (): ?>
-<!--        <div class="product-list-content">-->
-<!--            <div class="product" id="">-->
-<!--                <input type="checkbox" class="delete-checkbox">-->
-<!--                <div class="product-desc">-->
-<!--                    <div class="product-sku">Sku</div>-->
-<!--                    <div class="product-name">Name</div>-->
-<!--                    <div class="product-price">Price</div>-->
-<!--                    <div class="product-desc">DESC</div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    --><?php //endforeach; ?>
     <div class="product-list-footer">
         <footer>
             Scandiweb Test assignment
