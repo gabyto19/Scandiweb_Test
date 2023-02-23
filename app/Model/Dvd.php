@@ -23,8 +23,8 @@ class Dvd extends AbstractProduct
     {
         $this->saveMainProduct("dvd");
 
-        $productId = $this->getLastId()[0]["type_id"];
-        $sql = "INSERT INTO dvd (size,product_id) VALUES (?,?)";
+        $productId = $this->getLastId()[0]["product_id"];
+        $sql = "INSERT INTO dvd (size, product_id) VALUES (?,?)";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$this->getSize(), $productId]);
     }

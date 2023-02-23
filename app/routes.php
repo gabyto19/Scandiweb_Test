@@ -1,6 +1,7 @@
 <?php
 
 use app\Core\Template;
+use app\Model\Book;
 use app\Model\Dvd;
 
 $template = new Template();
@@ -39,10 +40,15 @@ switch ($page)
 //                //Todo
 //            }
 //
-//            if ($_POST["product_type"] === "book")
-//            {
-//                //Todo
-//            }
+            if ($_POST["product_type"] === "book")
+            {
+                $book = new Book();
+                $book->setSku($_POST["sku"]);
+                $book->setName($_POST["name"]);
+                $book->setPrice($_POST["price"]);
+                $book->setWeight($_POST["weight"]);
+                $book->saveBook();
+            }
         }
         break;
     default:
