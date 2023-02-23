@@ -1,7 +1,3 @@
-// var script = document.createElement('script');
-// script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; // Check https://jquery.com/ for the current version
-// document.getElementsByTagName('head')[0].appendChild(script);
-
 function addProduct()
 {
     document.getElementById("product-add-btn")
@@ -22,7 +18,7 @@ function saveProduct() {
 
     $.ajax({
         type: "POST",
-        url: "add-product",
+        url: "addproduct",
         data: dataForSend,
     }).done(function () {
         let inputs = Array.from(document.querySelectorAll("#product-form input"))
@@ -32,8 +28,8 @@ function saveProduct() {
         }
 
         // location.href = "/"
+        console.log(dataForSend)
     })
-    console.log(dataForSend)
 }
 
 function cancel()

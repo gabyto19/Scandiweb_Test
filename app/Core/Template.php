@@ -6,7 +6,7 @@ class Template
 {
     const TEMPLATE_DIR = __DIR__.'./../View/templates/';
 
-    public function render(string $filename, array $data = null)
+    public function render(string $filename, array $data = null): void
     {
         ob_start();
         if ($data !== null) {

@@ -17,18 +17,47 @@
         </div>
     </div>
 
-    <div class="product-list-content">
-        <div class="product" id="">
-            <input type="checkbox" class="delete-checkbox">
-            <div class="product-desc">
-                <div class="product-sku">Sku</div>
-                <div class="product-name">Name</div>
-                <div class="product-price">Price</div>
-                <div class="product-desc">DESC</div>
-            </div>
-        </div>
+<!--    --><?php //foreach (): ?>
+<!--        <div class="product-list-content">-->
+<!--            <div class="product" id="">-->
+<!--                <input type="checkbox" class="delete-checkbox">-->
+<!--                <div class="product-desc">-->
+<!--                    <div class="product-sku">Sku</div>-->
+<!--                    <div class="product-name">Name</div>-->
+<!--                    <div class="product-price">Price</div>-->
+<!--                    <div class="product-desc">DESC</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    --><?php //endforeach; ?>
+<!---->
+<!--    --><?php //foreach (): ?>
+<!--        <div class="product-list-content">-->
+<!--            <div class="product" id="">-->
+<!--                <input type="checkbox" class="delete-checkbox">-->
+<!--                <div class="product-desc">-->
+<!--                    <div class="product-sku">Sku</div>-->
+<!--                    <div class="product-name">Name</div>-->
+<!--                    <div class="product-price">Price</div>-->
+<!--                    <div class="product-desc">DESC</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    --><?php //endforeach; ?>
 
-</div>
+<!--    --><?php //foreach (): ?>
+<!--        <div class="product-list-content">-->
+<!--            <div class="product" id="">-->
+<!--                <input type="checkbox" class="delete-checkbox">-->
+<!--                <div class="product-desc">-->
+<!--                    <div class="product-sku">Sku</div>-->
+<!--                    <div class="product-name">Name</div>-->
+<!--                    <div class="product-price">Price</div>-->
+<!--                    <div class="product-desc">DESC</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    --><?php //endforeach; ?>
     <div class="product-list-footer">
         <footer>
             Scandiweb Test assignment

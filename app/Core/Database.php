@@ -6,7 +6,7 @@ use PDO;
 
 class Database
 {
-    private PDO $pdo;
+    protected PDO $pdo;
 
     public function __construct()
     {
@@ -27,15 +27,5 @@ class Database
 
         $this->pdo = new PDO($dsn, $username, $password);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-
-    public function save()
-    {
-        // Todo
-    }
-
-    public function delete()
-    {
-        // Todo
     }
 }
