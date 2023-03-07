@@ -2,6 +2,8 @@
 
 namespace app\Model;
 
+use app\Core\ValidateData;
+
 class Furniture extends AbstractProduct
 {
     private int $height;
@@ -38,7 +40,45 @@ class Furniture extends AbstractProduct
         return $this->length;
     }
 
-    public function saveFurniture()
+    public function validateData()
+    {
+        $height = $_POST["height"];
+        $width = $_POST["width"];
+        $length = $_POST["length"];
+
+        if (ValidateData::isEmpty($height)) {
+            ValidateData::$errors[] = "Height is missing";
+        } else if (!ValidateData::isValidNum($height)) {
+            ValidateData::$errors[] = "Height is not a numeric value";
+        } else {
+            $this->setHeight($height);
+        }
+
+        if (ValidateData::isEmpty($width)) {
+            ValidateData::$errors[] = "Width is missing";
+        } else if (!ValidateData::isValidNum($width)) {
+            ValidateData::$errors[] = "Width is not a numeric value";
+        } else {
+            $this->setHeight($width);
+        }
+
+        if (ValidateData::isEmpty($length)) {
+            ValidateData::$errors[] = "Length is missing";
+        } else if (!ValidateData::isValidNum($length)) {
+            ValidateData::$errors[] = "Length is not a numeric value";
+        } else {
+            $this->setHeight($length);
+        }
+    }
+
+    public function setData()
+    {
+        $this->setHeight($_POST["height"]);
+        $this->setWidth($_POST["width"]);
+        $this->setLength($_POST["length"]);
+    }
+
+    public function save()
     {
         $this->saveMainProduct("furniture");
 

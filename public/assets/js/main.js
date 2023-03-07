@@ -1,37 +1,14 @@
 function addProduct()
 {
-    document.getElementById("product-add-btn")
+    $("#product-add-btn")
     {
         location.href = "/addproduct"
     }
 }
 
-function saveProduct() {
-    let dataForSend = {}
-
-    let inputs = Array.from(document.querySelectorAll("#product-form input"))
-
-    inputs = inputs.filter(i => i.value)
-
-    inputs.forEach(i => dataForSend[i.id] = i.value)
-    dataForSend["product_type"] = document.querySelector("#productType").value
-
-    $.ajax({
-        type: "POST",
-        url: "addproduct",
-        data: dataForSend,
-    }).done(function () {
-        let inputs = Array.from(document.querySelectorAll("#product-form input"))
-        for(let index in inputs) {
-            inputs[index].value = ""
-        }
-        // location.href = "/"
-    })
-}
-
 function cancel()
 {
-    document.getElementById("product-cancel-btn")
+    $("#product-cancel-btn")
     {
         location.href = "/"
     }
@@ -39,41 +16,79 @@ function cancel()
 
 function typeSwitcher()
 {
-    let productsInput = Array.from(document.querySelectorAll(".products input"))
-    for (let index in productsInput) productsInput[index].value = ""
-
     let dvd = $(".dvd-container")
     let furniture = $(".furniture-container")
     let book = $(".book-container")
+    let typeValue = $("#productType").val()
 
-    let typeValue = document.querySelector("#productType").value
+    if (typeValue === "Dvd") dvd.show()
+    else dvd.hide()
 
-    if (typeValue === "dvd") dvd.css("display", "block")
-    else dvd.css("display", "none")
+    if (typeValue === "Furniture") furniture.show()
+    else furniture.hide()
 
-    if (typeValue === "furniture") furniture.css("display", "block")
-    else furniture.css("display", "none")
-
-    if (typeValue === "book") book.css("display", "block")
-    else book.css("display", "none")
+    if (typeValue === "Book") book.show()
+    else book.hide()
 }
 
 function deleteProduct()
 {
     let ids = []
-    let checkboxes = document.getElementsByClassName("delete-checkbox")
+    let checkboxes = Array.from($(".delete-checkbox"))
 
-    for(let i=0, n=checkboxes.length;i<n;i++) {
-        if (checkboxes[i].checked) {
-            ids.push(checkboxes[i].value)
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            ids.push(checkbox.value)
         }
+    })
+
+    // checkboxes.forEach(checkbox => checkbox.checked && ids.push(checkbox.value))
+
+    if (ids.length > 0) {
+        $.ajax({
+            type: "POST",
+            url: "massdelete",
+            data: {
+                ids: ids
+            },
+        }).then((resp) => {
+            console.log("massdelete then", resp)
+            location.reload()
+        }).catch((err) => {
+            console.log("massdelete catch", err)
+        })
     }
+}
+
+function postedData(){
+    let postData = {}
+    let mainInputs = Array.from($(".product-inputs input"))
+    let productType = $("#productType").val()
+    let productInputs = Array.from($(`#${productType} input`))
+
+    let total = [...mainInputs, ...productInputs]
+    postData["product_type"] = productType
+    total.forEach(i => postData[i.id] = i.value )
+
     $.ajax({
         type: "POST",
-        url: "massdelete",
-        data: {
-            ids: ids
-        },
+        url: "addproduct",
+        data: postData,
+    }).then(() => {
+        location.href = "/"
+    }).catch((err) => {
+        let errors = JSON.parse(err.responseText)
+        let myDiv = $("<div class='error'>")
+        let myUl = $("<ul>")
+
+        errors.forEach(err => {
+            let myLi = $("<li>").text(err)
+            myUl.append(myLi)
+        })
+
+        // clear old error message
+        $(".error").remove()
+        myDiv.append(myUl)
+        $(".product-inputs").before(myDiv)
     })
-    location.reload()
 }

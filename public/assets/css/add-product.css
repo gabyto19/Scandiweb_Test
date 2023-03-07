@@ -1,68 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
 * {
-  font-family: "Fredoka", serif;
+    font-family: "Fredoka", serif;
 }
 
 .product-add-content, .product-add-footer {
-  width: 100%;
-  max-width: 1350px;
-  margin: auto;
-  padding: 25px 0;
+    width: 100%;
+    max-width: 1350px;
+    margin: auto;
+    padding: 25px 0;
 }
 
 .product-add-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-  border-bottom: 3px solid rgb(29, 29, 29);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgb(29, 29, 29);
 }
 
 #product-save-btn, #product-cancel-btn {
-  margin-left: 20px;
-  box-shadow: 2px 3px 2px rgb(29, 29, 29);
-  cursor: pointer;
-  outline: none;
-  border: 1px solid rgb(29, 29, 29);
-}
-
-.product-desc {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 50px;
-  padding-bottom: 40%;
+    margin-left: 20px;
+    box-shadow: 2px 3px 2px rgb(29, 29, 29);
+    cursor: pointer;
+    outline: none;
+    border: 1px solid rgb(29, 29, 29);
 }
 
 .product-add-form {
-  margin: 50px auto;
+    margin: 50px auto;
 }
 
 .product-add-form label {
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
-  margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.type-switcher-container {
+    display: flex;
+    margin-top: 40px;
+}
+
+.product-add-form .type-switcher-label {
+    margin-top: 0;
+    width: 120px;
+}
+
+.products div {
+    margin-top: 40px;
 }
 
 .product-inputs span {
-  width: 200px;
+    width: 200px;
 }
 
 .dvd-container, .furniture-container, .book-container {
-  display: none;
+    display: none;
 }
 
 .saved-message {
-  display: none;
+    display: none;
 }
 
 .product-add-footer {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  padding: 25px 0;
-  margin: auto;
-  border-top: 3px solid rgb(29, 29, 29);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 25px 0;
+    margin: auto;
+    border-top: 3px solid rgb(29, 29, 29);
+}
+
+.error {
+    color: red;
 }
 
 /*# sourceMappingURL=add-product.css.map */

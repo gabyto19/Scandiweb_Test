@@ -19,7 +19,7 @@
     <div class="product-list-content">
         <?php if (empty($dvd) && empty($furniture) && empty($book)): ?>
             <div class="empty-product-msg">
-                There is no product added
+                <h1>There is no product added</h1>
             </div>
         <?php endif;?>
         <?php foreach ($dvd as $dvdCollection): ?>
@@ -66,6 +66,7 @@
             Scandiweb Test assignment
         </footer>
     </div>
+</div>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

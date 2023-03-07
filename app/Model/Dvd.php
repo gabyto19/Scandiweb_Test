@@ -2,8 +2,7 @@
 
 namespace app\Model;
 
-use app\Model\AbstractProduct;
-
+use app\Core\ValidateData;
 
 class Dvd extends AbstractProduct
 {
@@ -19,7 +18,24 @@ class Dvd extends AbstractProduct
         return $this->size;
     }
 
-    public function saveDvd()
+    public function validateData()
+    {
+        $size = $_POST["size"];
+
+        if (ValidateData::isEmpty($size))
+        {
+            ValidateData::$errors[] = "Size is missing";
+        } else if (!ValidateData::isValidNum($size)){
+            ValidateData::$errors[] = "Size must be valid number";
+        }
+    }
+
+    public function setData()
+    {
+        $this->setSize($_POST['size']);
+    }
+
+    public function save()
     {
         $this->saveMainProduct("dvd");
 
